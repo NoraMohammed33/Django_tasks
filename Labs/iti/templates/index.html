@@ -82,9 +82,12 @@ https://templatemo.com/tm-568-digimedia
             <!-- ***** Menu Start ***** -->
 			<div>
 				 <ul class="nav">
-					<!--<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>-->
-					<li class="scroll-to-section"><a href="{%url 'register'%}">Register</a></li>
-					<li class="scroll-to-section"><a href="{%url 'login'%}">Login</a></li>
+                   {% if request.session.login != True %}
+                      <li class="scroll-to-section"><a href="{%url 'register'%}">Register</a></li>
+					  <li class="scroll-to-section"><a href="{%url 'login'%}">Login</a></li>
+                   {% else %}
+					  <li class="scroll-to-section"><a href="{%url 'logout'%}" class="active">Logout</a></li>
+                   {% endif %}
 				</ul>
 			</div>
 
